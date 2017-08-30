@@ -1,6 +1,6 @@
 {
   "name": "hapi-view-models",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Role-filtered view model support for Hapi",
   "main": "index.js",
   "scripts": {
