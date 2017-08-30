@@ -1,7 +1,7 @@
 'use strict'
 
-const plugin = require('lib/plugin')
-const ViewModel = require('lib/view-model')
+const plugin = require('./lib/plugin')
+const ViewModel = require('./lib/view-model')
 
 module.exports = {
   plugin,

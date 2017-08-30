@@ -12,6 +12,14 @@ When rendering payloads from an API, we often want to provide different subsets 
 
 With `hapi-view-models` it is possible to render a variety of different versions of a single entity (payload) from a single endpoint.
 
+### Installing
+
+Installing is done in the usual way
+
+```bash
+npm install hapi-view-models
+```
+
 ### Usage
 
 In a pinch, the `vm` parameter of reply will allow you to render views of your data:
