@@ -4,7 +4,8 @@
   "description": "Role-filtered view model support for Hapi",
   "main": "index.js",
   "scripts": {
-    "test": "mocha lib/**/*.spec.js"
+    "test": "mocha lib/**/*.spec.js",
+    "lint": "eslint ."
   },
   "keywords": [
     "hapi",
@@ -15,6 +16,13 @@
   "devDependencies": {
     "boom": "^5.2.0",
     "code": "^4.1.0",
+    "eslint": "^4.5.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "hapi": "^16.5.2",
     "mocha": "^3.5.0"
   },

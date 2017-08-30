@@ -1,5 +1,9 @@
 ## hapi View Models
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) 
+[![Build Status](https://circleci.com/gh/vendigo-group/hapi-view-models.png)](https://circleci.com)
+[![Vendigo Open Source](https://img.shields.io/badge/vendigo-oss-brightgreen.svg)](http://github.com/vendigo-group)
+
 A plugin to provide a concept of 'view-models' to [hapi](https://hapijs.com).
 
 ### Purpose
@@ -135,6 +139,8 @@ The plugin exports two modules:
   * `plugin` which is the `hapi` plugin providing `reply.vm()`
   * `ViewModel` which is the base class your view models should extend.
 
+The plugin uses a slightly stricter extension of [standard-style](https://standardjs.com/)
+
 ### Contributing
 
 To contribute to the plugin, fork it to your own github account, create a branch, make your changes, and submit a PR.
@@ -146,4 +152,5 @@ To run our test suite:
 ```bash
 npm install
 npm test
+npm run lint
 ```

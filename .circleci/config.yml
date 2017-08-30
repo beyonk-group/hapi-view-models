@@ -1,0 +1,23 @@
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+
+    working_directory: ~/hapi-view-models
+
+    steps:
+      - add_ssh_keys
+      - checkout
+
+      - restore_cache:
+          key: hapi-view-models-{{ epoch }}
+
+      - run: npm install
+
+      - save_cache:
+          key: hapi-view-models-{{ epoch }}
+          paths: 
+            - node_modules/
+
+      - run: npm run lint
+      - run: npm test
