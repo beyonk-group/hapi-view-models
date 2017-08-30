@@ -135,3 +135,15 @@ The plugin exports two modules:
   * `plugin` which is the `hapi` plugin providing `reply.vm()`
   * `ViewModel` which is the base class your view models should extend.
 
+### Contributing
+
+To contribute to the plugin, fork it to your own github account, create a branch, make your changes, and submit a PR.
+
+Note that Vendigo Finance Ltd requires that you include tests to cover your new code, along with your PR in order to get it merged.
+
+To run our test suite:
+
+```bash
+npm install
+npm test
+```
