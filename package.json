@@ -1,0 +1,27 @@
+{
+  "name": "hapi-view-models",
+  "version": "1.0.0",
+  "description": "Role-filtered view model support for Hapi",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha lib/**/*.spec.js"
+  },
+  "keywords": [
+    "hapi",
+    "view-model"
+  ],
+  "author": "Antony Jones <antony.jones@vendigo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "boom": "^5.2.0",
+    "code": "^4.1.0",
+    "hapi": "^16.5.2",
+    "mocha": "^3.5.0"
+  },
+  "peerDependencies": {
+    "hapi": "^8.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
