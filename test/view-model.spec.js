@@ -1,7 +1,7 @@
 'use strict'
 
 const { expect } = require('code')
-const ViewModel = require('.')
+const {ViewModel} = require('../')
 
 describe('view-model', () => {
   const source = {

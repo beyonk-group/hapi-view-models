@@ -1,7 +1,7 @@
 'use strict'
 
-const server = require('./dummy-server')
-const { expect } = require('code')
+const server = require('./support/server')
+const {expect} = require('code')
 
 describe('plugin', () => {
   const request = {method: 'GET', url: '/endpoint'}
@@ -25,7 +25,7 @@ describe('plugin', () => {
   })
 
   context('given request with no role', () => {
-    it('returns filtered response based on lack of role ', async () => {
+    it('returns filtered response based on lack of role', async () => {
       const response = await server.inject(request)
       expect(response.result).to.equal({c: true})
     })

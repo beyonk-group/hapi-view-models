@@ -2,11 +2,10 @@
 
 const Hapi = require('hapi')
 const assert = require('assert')
-const { unauthorized } = require('boom')
+const {unauthorized} = require('boom')
 
-const ViewModel = require('../view-model')
+const {plugin, ViewModel} = require('../../')
 
-const plugin = require('.')
 const server = new Hapi.Server()
 
 class SomeViewModel extends ViewModel {
