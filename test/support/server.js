@@ -40,13 +40,45 @@ server.auth.strategy('placeholder', 'wide-open', 'try')
 
 server.route({
   method: 'GET',
-  path: '/endpoint',
-  handler: (request, reply) => {
+  path: '/response-is-view-model',
+  handler (request, reply) {
     reply.vm(SomeViewModel, {
       a: 'b',
       c: true,
       d: 4
     })
+  }
+})
+
+server.route({
+  method: 'GET',
+  path: '/response-envelope',
+  handler (request, reply) {
+    reply.vm(SomeViewModel, {
+      data: {
+        a: 'b',
+        c: true,
+        d: 4
+      }
+    }, 'data')
+  }
+})
+
+server.route({
+  method: 'GET',
+  path: '/deeply-nested',
+  handler (request, reply) {
+    reply.vm(SomeViewModel, {
+      deeply: {
+        nested: {
+          data: {
+            a: 'b',
+            c: true,
+            d: 4
+          }
+        }
+      }
+    }, 'deeply.nested.data')
   }
 })
 

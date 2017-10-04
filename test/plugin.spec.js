@@ -3,8 +3,8 @@
 const server = require('./support/server')
 const {expect} = require('code')
 
-describe('plugin', () => {
-  const request = {method: 'GET', url: '/endpoint'}
+describe('response is view model', () => {
+  const request = {method: 'GET', url: '/response-is-view-model'}
 
   context('given request with role "sees-a"', () => {
     it('returns filtered response based on role', async () => {
@@ -28,6 +28,54 @@ describe('plugin', () => {
     it('returns filtered response based on lack of role', async () => {
       const response = await server.inject(request)
       expect(response.result).to.equal({c: true})
+    })
+  })
+})
+
+describe('response is envelope containing view model', () => {
+  const request = {method: 'GET', url: '/response-envelope'}
+
+  context('given request with role "sees-a"', () => {
+    it('returns filtered response based on role', async () => {
+      request.credentials = {scope: ['sees-a']}
+      const response = await server.inject(request)
+      expect(response.result).to.equal({data: {a: 'b', c: true}})
+      delete request.credentials
+    })
+  })
+
+  context('given request with role "sees-d"', () => {
+    it('returns filtered response based on role', async () => {
+      request.credentials = {scope: ['sees-d']}
+      const response = await server.inject(request)
+      expect(response.result).to.equal({data: {d: 4, c: true}})
+      delete request.credentials
+    })
+  })
+
+  context('given request with no role', () => {
+    it('returns filtered response based on lack of role', async () => {
+      const response = await server.inject(request)
+      expect(response.result).to.equal({data: {c: true}})
+    })
+  })
+})
+
+describe('response envelope deeply nested view model', () => {
+  const request = {method: 'GET', url: '/deeply-nested'}
+
+  context('given request with role "sees-a"', () => {
+    it('returns filtered response based on role', async () => {
+      request.credentials = {scope: ['sees-a']}
+      const response = await server.inject(request)
+      expect(response.result).to.equal({
+        deeply: {
+          nested: {
+            data: {a: 'b', c: true}
+          }
+        }
+      })
+      delete request.credentials
     })
   })
 })
