@@ -1,8 +1,15 @@
 {
   "name": "hapi-view-models",
-  "version": "1.0.1",
   "description": "Role-filtered view model support for Hapi",
+  "homepage": "https://github.com/vendigo-group/hapi-view-models#readme",
+  "license": "MIT",
+  "version": "1.0.1",
   "main": "index.js",
+  "author": "Antony Jones <antony.jones@vendigo.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vendigo-group/hapi-view-models.git"
+  },
   "scripts": {
     "test": "mocha lib/**/*.spec.js",
     "lint": "eslint ."
@@ -11,8 +18,6 @@
     "hapi",
     "view-model"
   ],
-  "author": "Antony Jones <antony.jones@vendigo.com>",
-  "license": "MIT",
   "devDependencies": {
     "boom": "^5.2.0",
     "code": "^4.1.0",
