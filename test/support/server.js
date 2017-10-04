@@ -40,7 +40,7 @@ server.auth.strategy('placeholder', 'wide-open', 'try')
 
 server.route({
   method: 'GET',
-  path: '/response-is-view-model',
+  path: '/single',
   handler (request, reply) {
     reply.vm(SomeViewModel, {
       a: 'b',
@@ -52,7 +52,25 @@ server.route({
 
 server.route({
   method: 'GET',
-  path: '/response-envelope',
+  path: '/collection',
+  handler (request, reply) {
+    reply.vm(SomeViewModel, [
+      {
+        a: 'b',
+        c: true,
+        d: 4
+      },
+      {
+        a: 'b',
+        c: true,
+        d: 4
+      }
+    ])
+  }
+})
+server.route({
+  method: 'GET',
+  path: '/envelope',
   handler (request, reply) {
     reply.vm(SomeViewModel, {
       data: {
@@ -76,6 +94,31 @@ server.route({
             c: true,
             d: 4
           }
+        }
+      }
+    }, 'deeply.nested.data')
+  }
+})
+
+server.route({
+  method: 'GET',
+  path: '/deeply-nested-collection',
+  handler (request, reply) {
+    reply.vm(SomeViewModel, {
+      deeply: {
+        nested: {
+          data: [
+            {
+              a: 'b',
+              c: true,
+              d: 4
+            },
+            {
+              a: 'b',
+              c: true,
+              d: 4
+            }
+          ]
         }
       }
     }, 'deeply.nested.data')
