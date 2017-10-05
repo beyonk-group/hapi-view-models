@@ -1,6 +1,6 @@
 ## hapi View Models
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Build Status](https://circleci.com/gh/vendigo-group/hapi-view-models.png)](https://circleci.com)
 [![Vendigo Open Source](https://img.shields.io/badge/vendigo-oss-brightgreen.svg)](http://github.com/vendigo-group)
 
@@ -22,19 +22,35 @@ npm install hapi-view-models
 
 ### Usage
 
-In a pinch, the `vm` parameter of reply will allow you to render views of your data:
+The `vm` reply helper allows you to render views of your data:
 
 ```javascript
 const KeyPairViewModel = require('...')
 server.route({
   ...
-  handler: function (request, reply) {
-    reply.vm(KeyPairViewModel, keys)
+  handler (request, reply) {
+    reply.vm(KeyPairViewModel, response)
   }
 })
 ```
 
-Where vm takes the KeyPairViewModel and filters the data inside keys according to the user's scopes.
+Where vm takes the KeyPairViewModel and filters the data inside response according to the user's scope. Response can be a single entity or an array of entities.
+
+If you're returning a response envelope you can provide a path to the entity as a third argument to the vm reply helper.
+
+```javascript
+const KeyPairViewModel = require('...')
+server.route({
+  ...
+  handler (request, reply) {
+    reply.vm(KeyPairViewModel, {
+      nested: {
+        data: [...]
+      }
+    }, 'nested.data')
+  }
+})
+```
 
 ### Real World Example
 
@@ -112,10 +128,10 @@ This means you can do:
 
 ```javascript
 const data = {
-  a: { 
+  a: {
     foo: 'bar'
   },
-  b: { 
+  b: {
     e: 'stuff here',
     c: {
       d: 'some-data'
