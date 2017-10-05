@@ -3,7 +3,7 @@
   "description": "Role-filtered view model support for Hapi",
   "homepage": "https://github.com/vendigo-group/hapi-view-models#readme",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "index.js",
   "author": "Antony Jones <antony.jones@vendigo.com>",
   "repository": {
